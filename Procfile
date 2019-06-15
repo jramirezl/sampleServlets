@@ -1,0 +1,1 @@
+eb: java -jar $JAVA_OPTS -Dserver.port=$PORT target/sampleServlets-1.0-SNAPSHOT.war
