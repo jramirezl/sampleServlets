@@ -4,9 +4,8 @@
 
     <groupId>edu.udem.java2.ejemplo1</groupId>
     <artifactId>sampleServlets</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
-
+    <version>1.0</version>
+    <packaging>war</packaging>
     <name>sampleServlets</name>
 
     <properties>
@@ -99,7 +98,7 @@
                                 <artifactItem>
                                     <groupId>com.github.jsimone</groupId>
                                     <artifactId>webapp-runner</artifactId>
-                                    <version>8.5.31.0</version>
+                                    <version>9.0.20.1</version>
                                     <destFileName>webapp-runner.jar</destFileName>
                                 </artifactItem>
                             </artifactItems>
