@@ -12,6 +12,20 @@ package edu.udem.java2.ejemplo1.sampleservlets;
 public class Persona {
 
     /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
      * @return the login
      */
     public String getLogin() {
@@ -66,8 +80,21 @@ public class Persona {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+    
+    public Persona(){
+    }
+    
+    public Persona(String apellido, String nombre, String login, String psw ){
+        this.apellido = apellido;
+        this.nombre = nombre;
+        this.login = login;
+        this.psw = psw;
+    }
+    
+    
     private String nombre;
     private String apellido;
     private String login;
     private String psw;
+    private String email;
 }

@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>SecurityFilter</filter-name>
+        <filter-class>edu.udem.java2.ejemplo1.sampleservlets.SecurityFilter</filter-class>
+    </filter>
+    <!--    <filter-mapping>
+        <filter-name>SecurityFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>-->
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>org.h2.server.web.DbStarter</listener-class>
+    </listener>
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>DBInitiatorServletListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>H2Console</servlet-name>
+        <servlet-class>org.h2.server.web.WebServlet</servlet-class>
+        <!--
+        <init-param>
+            <param-name>webAllowOthers</param-name>
+            <param-value></param-value>
+        </init-param>
+        <init-param>
+            <param-name>trace</param-name>
+            <param-value></param-value>
+        </init-param>
+        -->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet>
         <servlet-name>FirstServlet</servlet-name>
         <servlet-class>edu.udem.java2.ejemplo1.sampleservlets.FirstServlet</servlet-class>
@@ -8,6 +39,30 @@
         <servlet-name>FisrServletModified</servlet-name>
         <servlet-class>edu.udem.java2.ejemplo1.sampleservlets.FisrServletModified</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SubmitFromJSPServlet</servlet-name>
+        <servlet-class>edu.udem.java2.ejemplo1.sampleservlets.SubmitFromJSPServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>edu.udem.java2.ejemplo1.sampleservlets.LoginServlet</servlet-class>
+    </servlet>
+    <context-param>
+        <param-name>db.url</param-name>
+        <param-value>jdbc:h2:~/test</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db.user</param-name>
+        <param-value>sa</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db.password</param-name>
+        <param-value>sa</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db.tcpServer</param-name>
+        <param-value>-tcpAllowOthers</param-value>
+    </context-param>
     <servlet-mapping>
         <servlet-name>FirstServlet</servlet-name>
         <url-pattern>/FirstServlet</url-pattern>
@@ -15,6 +70,18 @@
     <servlet-mapping>
         <servlet-name>FisrServletModified</servlet-name>
         <url-pattern>/FisrServletModified</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubmitFromJSPServlet</servlet-name>
+        <url-pattern>/SubmitFromJSPServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>H2Console</servlet-name>
+        <url-pattern>/console/*</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
